@@ -39,6 +39,26 @@
 <div class="text-center mt-4">
   <a href="menu.html" class="btn btn-outline-dark">Volver al Menú</a>
 </div>
+<script>
+  // Simulación de movimientos
+  const movimientos = [
+    { fecha: "10/01/2026", descripcion: "Depósito", monto: "+ $100" },
+    { fecha: "10/01/2026", descripcion: "Envío a usuario123", monto: "- $50" }
+  ];
+
+  const tbody = document.querySelector("tbody");
+
+  movimientos.forEach(mov => {
+    const fila = document.createElement("tr");
+    fila.innerHTML = `
+      <td>${mov.fecha}</td>
+      <td>${mov.descripcion}</td>
+      <td>${mov.monto}</td>
+    `;
+    tbody.appendChild(fila);
+  });
+</script>
+
 
 
 </body>

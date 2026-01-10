@@ -23,6 +23,25 @@
 <div class="text-center mt-4">
   <a href="menu.html" class="btn btn-outline-dark">Volver al Menú</a>
 </div>
+<script>
+  // Capturamos el formulario
+  const form = document.querySelector("form");
+  const montoInput = document.getElementById("monto");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault(); // evita que la página se recargue
+
+    const monto = parseFloat(montoInput.value);
+
+    if (isNaN(monto) || monto <= 0) {
+      alert("Por favor ingresa un monto válido.");
+    } else {
+      alert("Has depositado $" + monto.toFixed(2));
+      // Aquí podrías actualizar el saldo en el menú si tuvieras lógica compartida
+    }
+  });
+</script>
+
 
 
 

@@ -25,6 +25,27 @@
 <div class="text-center mt-4">
   <a href="menu.html" class="btn btn-outline-dark">Volver al Menú</a>
 </div>
+<script>
+  const form = document.querySelector("form");
+  const montoInput = document.getElementById("monto");
+  const destinatarioInput = document.getElementById("destinatario");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const monto = parseFloat(montoInput.value);
+    const destinatario = destinatarioInput.value.trim();
+
+    if (isNaN(monto) || monto <= 0 || destinatario === "") {
+      alert("Por favor ingresa un monto válido y un destinatario.");
+    } else {
+      alert("Has enviado $" + monto.toFixed(2) + " a " + destinatario);
+      montoInput.value = "";
+      destinatarioInput.value = "";
+    }
+  });
+</script>
+
 
 
 
