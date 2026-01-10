@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,24 @@
     <!--estilos personalizados css-->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="container py5">
     <h2 class="text-center mb-4">Enviar Dinero</h2>
     <!--aca va el contenido de la pagina enviar dinero-->
+    <form class="mx-auto" style="max-width:400px;">
+        <div class="mb-3"> <label for="destinatario" class="form-label">Destinatario</label> <input type="text"
+                class="form-control" id="destinatario" placeholder="Usuario o correo"> </div>
+        <div class="mb-3"> <label for="monto" class="form-label">Monto a enviar</label> <input type="number"
+                class="form-control" id="monto" placeholder="$0.00"> </div> <button type="submit"
+            class="btn btn-primary w-100">Enviar</button>
+    </form>
+    <!-- Botón de regreso al menú -->
+<div class="text-center mt-4">
+  <a href="menu.html" class="btn btn-outline-dark">Volver al Menú</a>
+</div>
 
-    
+
+
 </body>
+
 </html>
