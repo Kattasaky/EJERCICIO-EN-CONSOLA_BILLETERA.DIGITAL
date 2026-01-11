@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de sesión</title>
-     <!-- Bootstrap 4 CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/css/bootstrap.min.css">
- <!--estilos personalizados css-->
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/css/bootstrap.min.css">
+
+    <!--estilos personalizados css-->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="container py5">
     <h2 class="text-center mb-4">Inicio de sesión</h2>
     <!--aca va el contenido de la pagina de inicio de sesion-->
-    <form class="card p-4 shadow mx-auto" style="max-width: 420px;"> <!-- Campo Email --> <div class="mb-3"> <label for="email" class="form-label">Email</label> <input type="email" id="email" class="form-control" placeholder="Ingresa tu correo" required> </div> <!-- Campo Contraseña --> <div class="mb-3"> <label for="password" class="form-label">Contraseña</label> <input type="password" id="password" class="form-control" placeholder="Ingresa tu contraseña" required> </div> <!-- Botón de inicio de sesión --> <a href="menu.html" class="btn btn-primary w-100">Iniciar sesión</a> </form>
-<!-- jQuery (necesario para Bootstrap 4) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <form class="card p-4 shadow mx-auto" style="max-width: 420px;"> <!-- Campo Email -->
+        <div class="mb-3"> <label for="email" class="form-label">Email</label> <input type="email" id="email"
+                class="form-control" placeholder="Ingresa tu correo" required> </div> <!-- Campo Contraseña -->
+        <div class="mb-3"> <label for="password" class="form-label">Contraseña</label> <input type="password"
+                id="password" class="form-control" placeholder="Ingresa tu contraseña" required> </div>
+        <!-- Botón de inicio de sesión --> <a href="menu.html" class="btn btn-primary w-100">Iniciar sesión</a>
+    </form>
+    <!-- jQuery (necesario para Bootstrap 4) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Bootstrap 4 JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap 4 JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/js/bootstrap.min.js"></script>
+    <script> // Manejo del formulario con jQuery 
+        $('#loginForm').submit(function (event) {
+            event.preventDefault();
+            // Evita recargar la página 
+            const email = $('#email').val(); const password = $('#password').val(); if (email === "demo@wallet.com" && password === "1234") { $('#alert-container').html(` <div class="alert alert-success" role="alert"> Login exitoso, redirigiendo al menú principal... </div> `); setTimeout(() => { window.location.href = "menu.html"; }, 2000); } else { $('#alert-container').html(` <div class="alert alert-danger" role="alert"> Credenciales incorrectas. Intenta nuevamente. </div> `); }
+        }); 
+    </script>
 
-    
 </body>
+
 </html>

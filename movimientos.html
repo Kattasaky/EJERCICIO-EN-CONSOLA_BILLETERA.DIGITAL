@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Últimos Movimientos</title>
-     <!-- Bootstrap 4 CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/css/bootstrap.min.css">
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/css/bootstrap.min.css">
 
     <!--estilos personalizados css-->
     <link rel="stylesheet" href="css/style.css">
@@ -36,36 +36,51 @@
             </tr>
         </tbody>
     </table>
-<!-- Botón de regreso al menú -->
-<div class="text-center mt-4">
-  <a href="menu.html" class="btn btn-outline-dark">Volver al Menú</a>
-</div>
-<script>
-  // Simulación de movimientos
-  const movimientos = [
-    { fecha: "10/01/2026", descripcion: "Depósito", monto: "+ $100" },
-    { fecha: "10/01/2026", descripcion: "Envío a usuario123", monto: "- $50" }
-  ];
+    <!-- Botón de regreso al menú -->
+    <div class="text-center mt-4">
+        <a href="menu.html" class="btn btn-outline-dark">Volver al Menú</a>
+    </div>
+    <script>
+        // Simulación de movimientos
+        const movimientos = [
+            { fecha: "10/01/2026", descripcion: "Depósito", monto: "+ $100" },
+            { fecha: "10/01/2026", descripcion: "Envío a usuario123", monto: "- $50" }
+        ];
 
-  const tbody = document.querySelector("tbody");
+        const tbody = document.querySelector("tbody");
 
-  movimientos.forEach(mov => {
-    const fila = document.createElement("tr");
-    fila.innerHTML = `
+        movimientos.forEach(mov => {
+            const fila = document.createElement("tr");
+            fila.innerHTML = `
       <td>${mov.fecha}</td>
       <td>${mov.descripcion}</td>
       <td>${mov.monto}</td>
     `;
-    tbody.appendChild(fila);
-  });
-</script>
+            tbody.appendChild(fila);
+        });
+    </script>
 
-<!-- jQuery (necesario para Bootstrap 4) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery (necesario para Bootstrap 4) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Bootstrap 4 JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/js/bootstrap.min.js"></script>
-
+    <!-- Bootstrap 4 JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/js/bootstrap.min.js"></script>
+    <script> // Ejemplo de movimientos guardados (puedes reemplazar con localStorage) 
+        const listaTransacciones = [
+            { tipo: "deposito", descripcion: "Depósito de $100" },
+            { tipo: "transferencia", descripcion: "Envío de $50 a Juan" },
+            { tipo: "compra", descripcion: "Compra en supermercado $30" },
+            { tipo: "deposito", descripcion: "Depósito de $200" },
+            { tipo: "transferencia", descripcion: "Envío de $75 a María" }];
+        // Función para mostrar movimientos según filtro 
+        function mostrarUltimosMovimientos(filtro) {
+            $('#listaMovimientos').empty(); listaTransacciones.forEach(tx => { if (filtro === "todos" || tx.tipo === filtro) { $('#listaMovimientos').append(`<li class="list-group-item">${tx.descripcion}</li>`); } });
+        }
+        // Inicializar con todos 
+        mostrarUltimosMovimientos("todos");
+        // Cambiar filtro dinámicamente 
+        $('#filtro').change(function () { mostrarUltimosMovimientos($(this).val()); }); 
+    </script>
 
 </body>
 

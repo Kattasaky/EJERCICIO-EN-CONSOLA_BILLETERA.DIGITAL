@@ -52,8 +52,20 @@
 <!-- Bootstrap 4 JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/js/bootstrap.min.js"></script>
 
+<script>
+ // Mostrar/ocultar formulario de nuevo contacto 
+ $('#btnNuevo').click(()=> $('#formNuevoContacto').show()); $('#btnCancelar').click(()=> $('#formNuevoContacto').hide()); // Guardar nuevo contacto en el select $('#formNuevoContacto').submit(function(event){ event.preventDefault(); const nombre = $('#nombre').val(); const cbu = $('#cbu').val(); if(nombre && cbu){ $('#contacto').append(`<option value="${nombre}">${nombre} - CBU: ${cbu}</option>`); $('#alert-container').html(` <div class="alert alert-success" role="alert"> Contacto ${nombre} agregado correctamente. </div> `); $('#formNuevoContacto').hide(); $('#formNuevoContacto')[0].reset(); } });
 
+// Habilitar botón enviar solo si hay contacto seleccionado 
+$('#contacto').change(function(){ if($(this).val()){ $('#btnEnviar').prop('disabled', false); } else { $('#btnEnviar').prop('disabled', true); } });
 
-</body>
+// Enviar dinero 
+$('#sendForm').submit(function(event){ event.preventDefault(); 
+  const monto = parseFloat($('#monto').val()); const contacto = $('#contacto').val(); 
+  if(!contacto){ $('#alert-container').html(` <div class="alert alert-danger" role="alert"> Debes seleccionar un contacto. </div> `); return; } if(isNaN(monto) || monto <= 0){ $('#alert-container').html(` <div class="alert alert-danger" role="alert"> Monto inválido. </div> `); return; } $('#alert-container').html(` <div class="alert alert-success" role="alert"> Has enviado $${monto.toFixed(2)} a ${contacto}. </div> `);
+// Redirigir al menú después de 2 segundos 
+setTimeout(()=> window.location.href="menu.html",2000); }); 
+</script>
+  </body>
 
 </html>
